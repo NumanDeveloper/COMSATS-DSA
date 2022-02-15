@@ -3,6 +3,7 @@
 
 // functions prototypes
 void operations(void);
+void get_value(void);
 int add(int, int);
 int subtract(int, int);
 int multiply(int, int);
@@ -15,11 +16,15 @@ int main()
 {
     while (1)
     {
-        printf("\nEnter values: \n");
-        scanf("%d %d", &a, &b);
         operations();
         printf("\nOperation: ");
         scanf("%d", &op);
+        if (op == 5)
+        {
+            printf("Exiting...");
+            break;
+        }
+        get_value();
         calculation(op);
         // printf("Enter operation: ");
     }
@@ -27,7 +32,15 @@ int main()
 }
 void operations(void)
 {
-    printf("Pick an operation\n1.Add\n2.Subtract\n3.Multiply\n4.Divide");
+    printf("\n***CALCULATOR***\nPick an operation\n1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Exit");
+}
+
+void get_value(void)
+{
+    printf("\nEnter 1st value: ");
+    scanf("%d", &a);
+    printf("Enter 2nd value: ");
+    scanf("%d", &b);
 }
 int add(int a, int b)
 {
@@ -50,19 +63,19 @@ int calculation(int op)
     switch (op)
     {
     case 1:
-        printf("Addition: %d", add(a, b));
+        printf("Addition: %d\n", add(a, b));
         break;
     case 2:
-        printf("Subtraction: %d", subtract(a, b));
+        printf("Subtraction: %d\n", subtract(a, b));
         break;
     case 3:
-        printf("Multiplication: %d", multiply(a, b));
+        printf("Multiplication: %d\n", multiply(a, b));
         break;
     case 4:
-        printf("Division: %d", divide(a, b));
+        printf("Division: %d\n", divide(a, b));
         break;
     default:
-        printf("Invalid Operator!");
+        printf("Invalid Operator!\n");
         break;
     }
 }

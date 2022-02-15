@@ -6,9 +6,9 @@ int main()
     int i, n, sum;
     i = sum = 0;
     float average;
-    printf("Enter numbers:\n");
     while (i < SIZE)
     {
+        printf("Enter number %d: ", i + 1);
         scanf("%d", &n);
         sum += n;
         i++;
