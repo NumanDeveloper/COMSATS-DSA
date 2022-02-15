@@ -13,6 +13,6 @@ int main()
     }
     average = sum / (float)SIZE;
     printf("\nSum: %d", sum);
-    printf("\nAverage: %.2", average);
+    printf("\nAverage: %.2f", average);
     return 0;
 }

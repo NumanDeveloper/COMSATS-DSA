@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <conio.h>
-
+#define SIZE 10
 int main()
 {
     // const int SIZE = 10;
-    int arr[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int arr[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
     int min, max;
     min = max = arr[0];
 
@@ -12,7 +12,7 @@ int main()
     // int size = sizeof arr / sizeof arr[0];
     // As the pointer to the string points to the first item in the string.Following is also valid
     // int size = sizeof arr / sizeof *arr;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < SIZE; i++)
     {
         if (min > arr[i])
         {
