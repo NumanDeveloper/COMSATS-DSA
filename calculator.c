@@ -26,7 +26,6 @@ int main()
         }
         get_value();
         calculation(op);
-        // printf("Enter operation: ");
     }
     return 0;
 }
