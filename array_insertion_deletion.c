@@ -1,35 +1,21 @@
 #include <stdio.h>
 #include <conio.h>
 #define CAPACITY 50
-// global vars
-int element, opt, size = 5;
-void menu();
+
+// functions prototypes
 void display(int arr[], int size);
 int is_array_full(int arr[], int size);
 int index_insertion(int arr[], int size);
 int index_deletion(int arr[], int size);
-void calculation(int arr[], int opt);
 
 int main()
 {
-    int arr[CAPACITY] = {1, 3, 5, 7, 9};
-    while (1)
-    {
-        menu();
-        printf("\nYour choice: ");
-        scanf("%d", &opt);
-        if (opt == 4)
-        {
-            printf("Exiting...");
-            break;
-        }
-        calculation(arr, opt);
-    }
+    int opt, size = 5;
+    int arr[5] = {1, 3, 5, 7, 9};
+    display(arr, size);
+    // index_insertion(arr, size);
+    index_deletion(arr, size);
     return 0;
-}
-void menu()
-{
-    printf("\n1.Display\n2.Insert at specific index\n3.Delete at specific index\n4.Exit");
 }
 
 void display(int arr[], int size)
@@ -49,7 +35,7 @@ int index_insertion(int arr[], int size)
 {
     is_array_full(arr, size);
     size += 1;
-    int index;
+    int index, element;
     printf("Enter index: ");
     scanf("%d", &index);
     printf("Enter element: ");
@@ -67,35 +53,15 @@ int index_insertion(int arr[], int size)
 
 int index_deletion(int arr[], int size)
 {
-    int index1;
-    if (index1 >= size)
+    int index;
+    if (index >= size)
         return -1;
     size -= 1;
     printf("Enter index: ");
-    scanf("%d", &index1);
-    for (int i = index1; i < size - 1; i++)
-    {
+    scanf("%d", &index);
+    for (int i = index; i <= size - 1; i++)
         // backwording elements
         arr[i] = arr[i + 1];
-    }
     display(arr, size);
     return 1;
-}
-void calculation(int arr[], int opt)
-{
-    switch (opt)
-    {
-    case 1:
-        display(arr, size);
-        break;
-    case 2:
-        index_insertion(arr, size);
-        break;
-    case 3:
-        index_deletion(arr, size);
-        break;
-    default:
-        printf("Invalid choice!");
-        break;
-    }
 }
