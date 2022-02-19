@@ -1,7 +1,13 @@
+/*
+    Given a binary array nums, return the maximum number of consecutive 1's in the array.
+    Your input
+    [1,1,0,1,1,1]
+    Your answer
+    3
+*/
 #include <stdio.h>
 #include <conio.h>
 #define SIZE 10
-// Given a binary array nums, return the maximum number of consecutive 1's in the array.
 int findMaxConsecutiveOnes(int nums[], int size);
 int main()
 {
