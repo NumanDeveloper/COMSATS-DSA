@@ -49,12 +49,13 @@ int main()
     int nums[] = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
     int numsSize = sizeof(nums) / sizeof(int);
     int count = remove_duplicates(nums, numsSize);
+
     printf("\nRemaining elements of the array are:\n");
     for (int i = 0; i < count; i++)
-    {
         printf("%d ", nums[i]);
-    }
+
     printf("\nTotal remaining elements: %d", count);
+
     return 0;
 }
 
@@ -62,6 +63,7 @@ int remove_duplicates(int *nums, int numsSize)
 {
     if (numsSize == 0)
         return 0;
+
     int j = 0; // to track 1st element of new array
     // traverse array till end
     for (int i = 1; i < numsSize; i++)
@@ -71,5 +73,6 @@ int remove_duplicates(int *nums, int numsSize)
             j += 1; // increment to store at next to previous element
             nums[j] = nums[i];
         }
+
     return j + 1; // return size of new array
 }

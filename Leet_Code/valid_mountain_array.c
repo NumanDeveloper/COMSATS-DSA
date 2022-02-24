@@ -34,15 +34,20 @@ int main()
 {
     int arr[] = {0, 3, 2, 1};
     int arrSize = sizeof(arr) / sizeof(int);
+
     (valid_mountain_array(arr, arrSize)) ? printf("Mountain Array") : printf("Not a Mountain Array");
+
     return 0;
 }
 
 int valid_mountain_array(int *arr, int arrSize)
 {
     int l = 0, r = arrSize - 1;
+
+    // validating array size
     if (arrSize < 3)
         return 0;
+
     // walk up or traverse in ascending order from start
     while (l + 1 < arrSize && arr[l] < arr[l + 1])
         l++; // increment to move forward
@@ -54,5 +59,6 @@ int valid_mountain_array(int *arr, int arrSize)
     // walk down or traverse in descending order from peak
     while (l + 1 < arrSize && arr[l] > arr[l + 1])
         l++; // increment to move forward
+
     return l == r;
 }
