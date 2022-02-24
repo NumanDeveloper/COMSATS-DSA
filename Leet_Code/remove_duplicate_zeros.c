@@ -43,12 +43,12 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 #include <stdio.h>
 
-int removeDuplicates(int *nums, int numsSize);
+int remove_duplicates(int *nums, int numsSize);
 int main()
 {
     int nums[] = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
     int numsSize = sizeof(nums) / sizeof(int);
-    int count = removeDuplicates(nums, numsSize);
+    int count = remove_duplicates(nums, numsSize);
     printf("\nRemaining elements of the array are:\n");
     for (int i = 0; i < count; i++)
     {
@@ -58,19 +58,18 @@ int main()
     return 0;
 }
 
-int removeDuplicates(int *nums, int numsSize)
+int remove_duplicates(int *nums, int numsSize)
 {
-    for (int i = 0; i < numsSize; i++)
-    {
-        if (nums[i] == nums[i + 1])
+    if (numsSize == 0)
+        return 0;
+    int j = 0; // to track 1st element of new array
+    // traverse array till end
+    for (int i = 1; i < numsSize; i++)
+        // compare first element of new array with each element of old array. if there is no duplication, place that element from old array next to first element in new array
+        if (nums[i] != nums[j])
         {
-            for (int j = i + 1; j < numsSize; j++)
-            {
-                nums[j] = nums[j + 1];
-            }
-            numsSize--;
-            // decrement to again compare any other occurence
-            i--;
+            j += 1; // increment to store at next to previous element
+            nums[j] = nums[i];
         }
-    }
+    return j + 1; // return size of new array
 }
