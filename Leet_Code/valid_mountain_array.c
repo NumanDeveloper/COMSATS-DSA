@@ -28,25 +28,26 @@ Output: true
 */
 
 #include <stdio.h>
+#include <stdbool.h>
 
-int valid_mountain_array(int *arr, int arrSize);
+bool valid_mountain_array(int *arr, int arrSize);
 int main()
 {
-    int arr[] = {0, 3, 2, 1};
+    int arr[] = {3, 5, 5};
     int arrSize = sizeof(arr) / sizeof(int);
 
-    (valid_mountain_array(arr, arrSize)) ? printf("Mountain Array") : printf("Not a Mountain Array");
+    valid_mountain_array(arr, arrSize) ? printf("Mountain Array") : printf("Not a Mountain Array");
 
     return 0;
 }
 
-int valid_mountain_array(int *arr, int arrSize)
+bool valid_mountain_array(int *arr, int arrSize)
 {
     int l = 0, r = arrSize - 1;
 
     // validating array size
     if (arrSize < 3)
-        return 0;
+        return false;
 
     // walk up or traverse in ascending order from start
     while (l + 1 < arrSize && arr[l] < arr[l + 1])
@@ -54,7 +55,7 @@ int valid_mountain_array(int *arr, int arrSize)
 
     // now we've reached the peak and peak can't be first or last
     if (l == 0 || l == r)
-        return 0;
+        return false;
 
     // walk down or traverse in descending order from peak
     while (l + 1 < arrSize && arr[l] > arr[l + 1])
