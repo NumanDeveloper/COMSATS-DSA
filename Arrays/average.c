@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <conio.h>
 #define SIZE 5
+
 int main()
 {
     int i, n, sum;
     i = sum = 0;
-    float average;
+    float average = 0.0;
     while (i < SIZE)
     {
         printf("Enter number %d: ", i + 1);

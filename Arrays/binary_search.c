@@ -19,7 +19,7 @@ void binary_search(int arr[], int size)
     int index, number, low, mid, high;
     low = 0;
     high = size - 1;
-    printf("\nEnter number: ");
+    printf("\nEnter number to search: ");
     scanf("%d", &number);
     while (low <= high)
     {

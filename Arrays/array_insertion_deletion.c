@@ -13,8 +13,8 @@ int main()
     int opt, size = 5;
     int arr[5] = {1, 3, 5, 7, 9};
     display(arr, size);
-    // index_insertion(arr, size);
-    index_deletion(arr, size);
+    index_insertion(arr, size);
+    // index_deletion(arr, size);
     return 0;
 }
 
@@ -34,7 +34,7 @@ int is_array_full(int arr[], int size)
 int index_insertion(int arr[], int size)
 {
     is_array_full(arr, size);
-    size += 1;
+    size += 1; // increment size to make room for insertion
     int index, element;
     printf("Enter index: ");
     scanf("%d", &index);
@@ -43,11 +43,12 @@ int index_insertion(int arr[], int size)
     // go to desired index, will start from right side
     for (int i = size - 1; i >= index; i--)
     {
-        // forwarding elements beyond index
+        // forwarding elements to the right of desired index
         arr[i + 1] = arr[i];
     }
     arr[index] = element;
     display(arr, size);
+
     return 1;
 }
 
@@ -63,5 +64,6 @@ int index_deletion(int arr[], int size)
         // backwording elements
         arr[i] = arr[i + 1];
     display(arr, size);
+    
     return 1;
 }
