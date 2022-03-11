@@ -33,56 +33,47 @@ The third distinct maximum is 1.
 */
 
 #include <stdio.h>
-#include <limits.h>
 
 int third_max(int *nums, int numsSize);
 int main()
 {
-    int nums[] = {2, 2, 3, -1};
+    int nums[] = {2, 2, 3, 1};
     int numsSize = sizeof(nums) / sizeof(int);
 
     printf("%d is the third max!", third_max(nums, numsSize));
     return 0;
 }
-
+void selection_sort(int arr[], int size)
+{
+    int temp, index_of_max;
+    // this loop will select elements one by one
+    for (int i = 0; i < (size - 1); i++)
+    {
+        index_of_max = i;
+        // this loop will start comparing from i+1, element next to i
+        for (int j = i + 1; j < size; j++)
+        {
+            // sorting in descending order
+            if (arr[index_of_max] < arr[j])
+            {
+                // swapping
+                temp = arr[j];
+                arr[j] = arr[index_of_max];
+                arr[index_of_max] = temp;
+            }
+        }
+    }
+}
 int third_max(int *nums, int numsSize)
 {
-    // the logic is to declare three variables for three maximums and return the third max
-    int first, second, third;
-    // initiallizing to INT_MIN to avoid out of bound error
-    first = second = third = INT_MIN;
-    if (numsSize == 2)
-        // if array size is 2, simply return max
-        return (nums[0] > nums[1]) ? nums[0] : nums[1];
-
-    for (int i = 0; i < numsSize; i++)
-    {
-        if (nums[i] == first || nums[i] == second || nums[i] == third)
-            // wherever duplicate occurs, skip it and continue to next iteration
-            continue;
-
-        if (nums[i] > first)
-        {
-            // if first is updated, all need to be updated
-            // start updating from bottom so that we don't lose reference
-            third = second;
-            second = first;
-            first = nums[i];
-        }
-        else if (nums[i] > second)
-        {
-            // if second is updated, third needs to be updated
-            // start updating from bottom so that we don't lose reference
-            third = second;
-            second = nums[i];
-        }
-        else if (nums[i] > third)
-            third = nums[i];
-    }
-    if (third == INT_MIN)
-        // acc. to question, if third max is not found or doesn't exist, return first max
-        return first;
-
-    // if we get successfully till the end, return the third max
-    return third;
+    // the logic is to sort the array in descending order and return the third element
+    if (numsSize < 3)
+        // if array size is less than 3, return the max
+        return (nums[0] > nums[1] ? nums[0] : nums[1]);
+    selection_sort(nums, numsSize);
+    // handling duplicates
+    if (nums[2] == nums[1])
+        // if duplicats exist, return next max 
+        return nums[3];
+    return nums[2];
 }
