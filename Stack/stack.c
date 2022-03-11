@@ -35,7 +35,7 @@ void push(int x)
     // check if the stack is full
     if (top >= SIZE - 1)
         printf("Error: Stack Overflow");
-    else                                                                                                                                                                                                                                                                                                                                             
+    else             
     {
         // first increment top, then push
         stack[++top] = x;
