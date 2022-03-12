@@ -1,13 +1,31 @@
-#include <stdio.h>
-#include <ctype.h>
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+#define SIZE 50
 
-#define SIZE 20
 char stack[SIZE];
-int top_index = -1;
+int top = -1;
 
-void push(char x);
-char pop();
-int priority(char op);
+void push(char x)
+{
+    stack[++top] = x;
+}
+
+char pop()
+{
+    return (top == -1) ? -1 : stack[top--];
+}
+
+int priority(char value)
+{
+    // This condition is vvip. I've wasted much time by not inserting it
+    if(value == '(')
+        return 0;
+    if(value == '+' || value == '-')
+        return 1;
+    if(value == '*' || value == '/')
+        return 2;
+}
 
 int main()
 {
@@ -25,56 +43,39 @@ int main()
     *       3. then push the operator into stack
     *   At last, pop all chars from stack and print
     */
-    char x, infix[20];
-    printf("Enter Infix Expression: ");
-    scanf("%s", &infix);
-    char *ptr = infix;
-
+    char infix[SIZE];
+    char *p, x;
+    printf("Enter the infix expression: ");
+    scanf("%s", infix);
     printf("\nPostfix Expression: ");
-    while (*ptr != '\0')
+    p = infix;
+    while(*p != '\0')
     {
         // if char is alpha-numeric, print it as postfix expression
-        if (isalnum(*ptr))
-            printf("%c", *ptr);
+        if(isalnum(*p))
+            printf("%c",*p);
         // if char is (, push it into stack
-        else if (*ptr == '(')
-            push('(');
+        else if(*p== '(')
+            push(*p);
         // if char is ), pop and print until ( encounters
-        else if (*ptr == ')')
+        else if(*p== ')')
         {
-            while (x = pop() != '(')
+            while((x = pop()) != '(')
                 printf("%c", x);
         }
-        // else char must be operator, so, check its priority
         else
         {
-            // pop and print until operator precedence becomes higher than stack top priority
-            while (priority(stack[top_index]) >= priority(*ptr))
+            // else char must be operator, so, check its priority
+            while(priority(stack[top]) >= priority(*p))
                 printf("%c", pop());
             // now, operator precedence is higher, so push it into stack
-            push(*ptr);
+            push(*p);
         }
-        ptr++; // increment for next iteration
+        p++; // increment for next iteration
     }
     // pop and print all the remaining chars of stack
-    while (top_index != -1)
+    while(top != -1)
         printf("%c", pop());
 
     return 0;
-}
-
-void push(char x)
-{
-    stack[++top_index] = x;
-}
-char pop()
-{
-    return stack[top_index--];
-}
-int priority(char op)
-{
-    if (op == '/' || op == '*')
-        return 2;
-    else if (op == '+' || op == '-')
-        return 1;
 }
