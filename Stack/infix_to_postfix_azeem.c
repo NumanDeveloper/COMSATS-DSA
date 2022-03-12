@@ -162,6 +162,5 @@ int psnSolve(char psnStack[])
             resultTop--;
         }
     }
-
     return result[0];
 }
