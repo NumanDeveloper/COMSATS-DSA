@@ -1,8 +1,13 @@
 #include <stdio.h>
-#define MAX_SIZE 50
+#define MAX_SIZE 20
 
 int queue[MAX_SIZE], front = -1, back = -1;
 
+void en_queue(int);
+void de_queue();
+void display();
+int is_full();
+int is_empty();
 // Check if the queue is full
 int is_full() {
   if ((front == back + 1) || (front == 0 && back == MAX_SIZE - 1)) return 1;
@@ -32,7 +37,7 @@ void en_queue(int x){
 void de_queue(){
     // check empty condition
     if(is_empty())
-        printf("ERROR: Queue is empty!\n");
+        printf("ERROR: Queue is empty !!\n");
     else{
         printf("Deleted -> %d\n", queue[front]);
 
@@ -42,24 +47,22 @@ void de_queue(){
             front = -1;
             back = -1;
         } 
-        else {
+        else
             front = (front + 1) % MAX_SIZE;
-        }
     }   
 }
 
 void display(){
     if(is_empty())
-        printf("Queue is empty!");
+        printf("Queue currently has no elements to display !!\n");
     else{
         printf("Front -> %d\n", front);
     printf("Queue: ");
     for (int i = front; i < back+1; i++)
-    {
         printf("%d | ", queue[i]);
-    }
-        printf("\n");
-        printf("Back -> %d\n", back);
+    printf("\n");
+    printf("Back -> %d\n", back);
+    printf("\n");
     }
 }
 int main(){
@@ -69,11 +72,9 @@ int main(){
     display();
     de_queue();
     de_queue();
+    de_queue();
     display();
-    en_queue(1);
-    en_queue(2);
-    en_queue(3);
-    display();
+
     
     return 0;
 }
