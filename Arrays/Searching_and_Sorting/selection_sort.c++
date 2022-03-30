@@ -4,14 +4,8 @@ using namespace std;
 void print_array(int*, int);
 void selection_sort(int*, int);
 int main(){
-    int s;
-    cout<<"Enter size of array: ";
-    cin>>s;
-    int arr[s];
-    cout<<"Enter array elements:\n";
-    for (int i = 0; i < s; i++)
-        cin>>arr[i];
-    
+    int arr[5] = {2,1,5,22,4};
+    int s = sizeof(arr)/sizeof(int);
     print_array(arr, s);
     selection_sort(arr, s);
 
@@ -25,19 +19,19 @@ void print_array(int* arr, int s){
 }
 
 void selection_sort(int* arr, int s){
-    int temp;
-    for (int i = 0; i < s-1; i++)
+    int temp, index_of_min;
+    for (int i = 0; i < 5; i++)
     {
-        for (int j = i+1; j < s; j++)
+        index_of_min = i;
+        for (int j = i+1; j < 5; j++)
         {
-            // sorting in ascending order
-            if (arr[i] > arr[j])
-            {
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
+            // finding minimum element index
+            if (arr[index_of_min] > arr[j])
+                index_of_min = j;
         }
+        temp = arr[i];
+        arr[i] = arr[index_of_min];
+        arr[index_of_min] = temp;
     }
     cout<<"Sorted Elements of array are:\n";
     for (int k = 0; k < s; k++)
