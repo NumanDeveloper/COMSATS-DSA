@@ -41,22 +41,22 @@ int partition(int array[], int low, int high)
     // select the rightmost element as pivot
     int pivot = array[high];
     // pointer for left side, we'll place smaller elements on left side
-    int left = (low - 1);
+    int left = (low-1); // initial value is -1
 
     // traverse each element of the array and compare them with the pivot
     for (int j = low; j < high; j++)
     {
         if (array[j] <= pivot)
         {
-            // if element smaller than pivot is found, swap it with the left element pointed by left
+            // if element smaller than pivot is found, increment left and swap it with the left element pointed by left
             swap(&array[++left], &array[j]);
         }
     }
 
-    // swap pivot with the greater element at i
-    swap(&array[left + 1], &array[high]);
+    // swap pivot with the left element at left pointer
+    swap(&array[left+1], &array[high]);
     // return the partition point
-    return (left + 1);
+    return (left+1);
 }
 
 void quick_sort(int array[], int low, int high)

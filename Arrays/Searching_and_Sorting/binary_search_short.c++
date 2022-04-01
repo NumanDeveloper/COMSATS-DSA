@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
-
+// CAUTION: Array must be sorted in order to use binary search 
 int main(){
-    int s = 0, e = 4, m, n;
-    int arr[5] = {1,3,5,10,2};
+    int s = 0, e = 6, m, n;
+    int arr[7] = {3, 4, 5, 6, 7, 8, 9};
     
     cout<<"Enter element to search: ";
     cin>>n;
 
     while (s <= e)
     {
-        m = s + (e - s) / 2;
+        m = (s + e) / 2;
         if(n == arr[m]){
             cout<<n<<" found at index "<<m<<endl;
             break;
