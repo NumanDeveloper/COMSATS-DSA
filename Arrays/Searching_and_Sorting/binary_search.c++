@@ -9,8 +9,11 @@ void print_array(int* arr, int s){
         cout<<arr[k]<<" | ";
     cout<<"\n";
 }
-int binarySearch(int array[], int x, int low, int high)
+int binarySearch(int array[], int low, int high)
 {
+    int x;
+    cout<<"Enter element to find: ";
+    cin>>x;
     // Repeat until the pointers low and high meet each other
     while (low <= high)
     {
@@ -36,10 +39,7 @@ int main()
     int s = sizeof(array) / sizeof(int);
     print_array(array, s);
 
-    cout<<"Enter element to find: ";
-    cin>>x;
-
-    int result = binarySearch(array, x, 0, s - 1);
+    int result = binarySearch(array, 0, s - 1);
     (result == -1) ? cout<<"Not found !!" : cout<<"Element is found at index "<< result;
 
     return 0;

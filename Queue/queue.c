@@ -9,7 +9,6 @@ void display();
 int is_full();
 int is_empty();
 int main(){
-    display();
     en_queue(34);
     en_queue(55);
     en_queue(55);
@@ -29,9 +28,11 @@ int main(){
 
 int is_full(){
     if (back == MAX_SIZE-1) return 1;
+    else return 0;
 }
 int is_empty(){
     if (front == -1) return 1;
+    else return 0;
 }
 void en_queue(int x){
     // check full condition

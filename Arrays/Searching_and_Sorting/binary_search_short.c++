@@ -16,9 +16,9 @@ int main(){
             break;
         }
         else if(n < arr[m])
-            e = m-1;
+            e = m-1; // take left half
         else
-            s = m+1;
+            s = m+1; // take right half
     }
 
     return 0;

@@ -11,13 +11,13 @@ int is_empty();
 // Check if the queue is full
 int is_full() {
   if ((front == back + 1) || (front == 0 && back == MAX_SIZE - 1)) return 1;
-  return 0;
+  else return 0;
 }
 
 // Check if the queue is empty
 int is_empty() {
   if (front == -1) return 1;
-  return 0;
+  else return 0;
 }
 void en_queue(int x){
     // check full condition
@@ -56,13 +56,13 @@ void display(){
     if(is_empty())
         printf("Queue currently has no elements to display !!\n");
     else{
-        printf("Front -> %d\n", front);
-    printf("Queue: ");
-    for (int i = front; i < back+1; i++)
-        printf("%d | ", queue[i]);
-    printf("\n");
-    printf("Back -> %d\n", back);
-    printf("\n");
+        printf("Front Pointer -> %d\n", front);
+        printf("Queue: ");
+        for (int i = front; i < back+1; i++)
+            printf("%d | ", queue[i]);
+        printf("\n");
+        printf("Back Pointer -> %d\n", back);
+        printf("\n");
     }
 }
 int main(){
@@ -75,6 +75,5 @@ int main(){
     de_queue();
     display();
 
-    
     return 0;
 }
