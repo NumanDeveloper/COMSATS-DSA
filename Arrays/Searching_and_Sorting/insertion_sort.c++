@@ -22,7 +22,7 @@ void print_array(int* arr, int s){
 void insertion_sort(int* arr, int s){
     /*
     * Logic:
-    * select a key value and assume it pre-sorted
+    * select a key value and assume first value to be pre-sorted
     * take j=i-1 and compare key with its left side elements and shift A[j] to A[j+1] until j>=0
     * set A[j+1] = key
     */
@@ -33,7 +33,7 @@ void insertion_sort(int* arr, int s){
         // assuming first value to be sorted
         key = arr[i]; // assign second value to key
         j = i-1; // bcz we will compare key with its left size elements
-        while (j >= 0 && arr[j] > key)
+        while (j >= 0 && key < arr[j])
         {
             arr[j+1] = arr[j]; // shift to right side
             j--;

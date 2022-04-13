@@ -4,7 +4,7 @@ using namespace std;
 int main(){
     int arr[5] = {2,1,5,22,4};
     int temp, index_of_min;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 4; i++)
     {
         index_of_min = i;
         for (int j = i+1; j < 5; j++)

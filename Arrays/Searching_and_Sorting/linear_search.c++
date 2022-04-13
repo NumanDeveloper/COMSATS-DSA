@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-int search(int array[], int s, int x)
+int linearSearch(int array[], int s, int x)
 {
 
     // Going through array sequencially
@@ -20,7 +20,7 @@ int main()
     cout<<"Enter element to search: ";
     cin>>x;
 
-    int result = search(array, s, x);
+    int result = linearSearch(array, s, x);
 
     (result == -1) ? cout <<x<< " not found" : cout <<x<< " found at index " << result;
 }

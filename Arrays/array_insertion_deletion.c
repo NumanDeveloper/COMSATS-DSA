@@ -10,7 +10,7 @@ int index_deletion(int* arr, int size);
 
 int main()
 {
-    int opt, size = 5;
+    int size = 5;
     int arr[5] = {1, 3, 5, 7, 9};
     display(arr, size);
     // index_insertion(arr, size);
@@ -30,11 +30,14 @@ void display(int* arr, int size)
 int is_array_full(int* arr, int size)
 {
     if (size >= CAPACITY)
-        return -1;
+        return 1;
+    return 0;
 }
+
 int index_insertion(int* arr, int size)
 {
     is_array_full(arr, size);
+
     size += 1; // increment size to make room for insertion
     int index, element;
     printf("Enter index: ");
@@ -58,6 +61,7 @@ int index_deletion(int* arr, int size)
     int index;
     if (index >= size)
         return -1;
+        
     size -= 1;
     printf("Enter index: ");
     scanf("%d", &index);

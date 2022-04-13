@@ -39,7 +39,7 @@ int main()
     *   if ) encounter, pop and print char from stack until ( encounters
     *   if operator encounters, check its priority
     *       1. if operator precedence is higher than stack top, push it into stack
-    *       2. else keep popping and priting until operator precedence becomes higher
+    *       2. else keep popping and priting until operator precedence becomes higher than stack top
     *       3. then push the operator into stack
     *   At last, pop all chars from stack and print
     */
@@ -55,10 +55,10 @@ int main()
         if(isalnum(*p))
             printf("%c",*p);
         // if char is (, push it into stack
-        else if(*p== '(')
+        else if(*p == '(')
             push(*p);
         // if char is ), pop and print until ( encounters
-        else if(*p== ')')
+        else if(*p == ')')
         {
             while((x = pop()) != '(')
                 printf("%c", x);

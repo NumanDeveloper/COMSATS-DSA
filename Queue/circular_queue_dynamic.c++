@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define MAX_SIZE 2
+#define MAX_SIZE 10
 int size = 0;
 
 struct Q{
@@ -18,13 +18,13 @@ void createEmptyQ(st *q){
 int isEmpty(st *q){
     if(q->front == -1)
         return 1;
-    else return 0;
+    return 0;
 }
 
 int isFull(st *q){
     if(q->front == q->rear + 1 || (q->front == 0 && q->rear == MAX_SIZE-1))
         return 1;
-    else return 0;
+    return 0;
 }
 void printQ(st *q){
     if(isEmpty(q))
@@ -32,9 +32,7 @@ void printQ(st *q){
     else{
         cout<<"Queue: ";
         for (int i = 0; i < size; i++)
-        {
             cout<<q->arr[i]<<" | ";
-        }
         cout<<endl;
     }
 }
@@ -57,7 +55,7 @@ void deQ(st *q){
         size--;
 
         if(q->front == q->rear) 
-        // Reset Queue
+            // Reset Queue
             q->front = q->rear = -1;
         else   
             q->front = (q->front+1) % MAX_SIZE; // move front forward

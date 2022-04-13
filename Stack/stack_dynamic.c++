@@ -15,10 +15,12 @@ void createEmptyStack(st *s){
     s->top = -1;
 }
 int isEmpty(st *s){
-    if (s->top == -1) return 1; else return 0;
+    if (s->top == -1) return 1;
+    return 0;
 }
 int isFull(st *s){
-    if (s->top == MAX_SIZE-1) return 1; else return 0;
+    if (s->top == MAX_SIZE-1) return 1;
+    return 0;
 }
 void printStack(st *s){
     if(isEmpty(s)){

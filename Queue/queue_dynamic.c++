@@ -17,12 +17,12 @@ void createEmptyQ(st *q){
 }
 int isEmpty(st *q){
     if(q->front == -1) return 1;
-    else return 0;
+    return 0;
 }
 
 int isFull(st *q){
     if(q->rear == MAX_SIZE-1) return 1;
-    else return 0;
+    return 0;
 }
 void printQ(st *q){
     if(isEmpty(q))
@@ -72,5 +72,6 @@ int main(){
     deQ(q);
     deQ(q);
     printQ(q);
+    
     return 0;
 }

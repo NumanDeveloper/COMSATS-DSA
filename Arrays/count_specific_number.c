@@ -4,9 +4,9 @@
 int main()
 {
     int array[SIZE], search, count = 0;
-    for (int i = 1; i <= SIZE; i++)
+    for (int i = 0; i < SIZE; i++)
     {
-        printf("Enter number %d: ", i);
+        printf("Enter number %d: ", i+1);
         scanf("%d", &array[i]);
     }
     printf("Which number to count: ");
