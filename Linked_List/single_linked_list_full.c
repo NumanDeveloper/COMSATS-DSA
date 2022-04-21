@@ -28,6 +28,7 @@ void deleteAtEnd();
 void deleteAfterNode();
 void deleteBeforeNode();
 void deleteAtPosition();
+void reverseList();
 void search();
 
 int main(){
@@ -82,10 +83,12 @@ int main(){
             search();
             break;
         case 15:
+            reverseList();
+            break;
+        case 16:
             printf("Exiting...");
             exit(0);
             break;
-        
         default:
             printf("INVALID CHOICE !!");
             break;
@@ -95,7 +98,7 @@ int main(){
 }
 
 void menu(){
-    printf("____ MENU ____\n1. Create List\n2. Print List\n3. Count Nodes\n4. Insert at start\n5. Insert at end\n6. Insert at specific position\n7. Insert after a node\n8. Insert before a node\n9. Delete at start\n10. Delete at end\n11. Delete at specific position\n12. Delete after a node\n13. Delete before a node\n14. Search\n15. Exit\n");
+    printf("____ MENU ____\n1. Create List\n2. Print List\n3. Count Nodes\n4. Insert at start\n5. Insert at end\n6. Insert at specific position\n7. Insert after a node\n8. Insert before a node\n9. Delete at start\n10. Delete at end\n11. Delete at specific position\n12. Delete after a node\n13. Delete before a node\n14. Search\n15. Reverse List\n16. Exit\n");
 }
 
 void createList(){
@@ -314,4 +317,18 @@ void search(){
         ptr = ptr->next;
     }
     ptr == NULL ? printf("Number not found in list !!\n") : printf("Number found at position %d\n", pos);
+}
+
+void reverseList(){
+    st *back, *forward;
+    back = NULL;
+    ptr = head;
+    while (ptr!=NULL)
+    {
+        forward = ptr->next;
+        ptr->next = back;
+        back = ptr;
+        ptr = forward;
+    }
+    head = back;
 }
