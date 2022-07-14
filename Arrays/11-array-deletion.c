@@ -7,39 +7,39 @@ void display(int arr[], int n)
     // traversal
     for (int i = 0; i < n; i++)
     {
-        printf("%d ", arr[i]);
+        printf("%d | ", arr[i]);
     }
     printf("\n");
 }
 
-int indDeletion(int arr[], int size, int index)
+int indexDeletion(int arr[], int size, int index)
 {
-    int capacity;
     // Deletion
-    if (size >= capacity)
+    if (index >= size)
     {
         return -1; // no Deletion
     }
+
     for (int i = index; i < size - 1; i++)
     {
-        arr[i] = arr[i + 1]; // moving element one index back
+        arr[i] = arr[i + 1]; // moving element one index back till desired index
     }
 }
+
 int main()
 {
     system("cls");
 
     int arr[100] = {7, 8, 12, 27, 88};
-    int size = 5, capacity = 100, index;
-    index = 4; //index at which Deletion is required
+    int size = 5;
 
     printf("Array before deletion\n");
     display(arr, size);
 
-    indDeletion(arr, size, index); //calling Deletion function
-    size -= 1;
+    indexDeletion(arr, size, 1); //calling Deletion function
+    size--;
 
-    printf("Array after deletion\n");
+    printf("Array after deletion\nDeleting...\n");
     display(arr, size); //printing first six elements of inserted array
 
     return 0;
