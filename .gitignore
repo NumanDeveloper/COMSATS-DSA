@@ -1,10 +1,13 @@
-# ignore all .exe files anywhere
+# ignore all these files everywhere
 *.exe
 *.txt
+
 # ignore .vscode directory
 .vscode/
-# ignore all files anywhere
+
+# ignore all these files everywhere
 *tempCodeRunnerFile.c
 *tempCodeRunnerFile.c++
 *tempCodeRunnerFile.cpp
 *tempCodeRunnerFile.py
+*tempCodeRunnerFile.js
