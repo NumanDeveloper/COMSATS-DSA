@@ -5,11 +5,10 @@ using namespace std;
 
 int linearSearch(int array[], int s, int x)
 {
-
-    // Going through array sequencially
+    // Going through array sequentially
     for (int i = 0; i < s; i++)
         if (array[i] == x)
-            return i;
+            return i;    
     return -1;
 }
 

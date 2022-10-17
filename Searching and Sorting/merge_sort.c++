@@ -49,7 +49,7 @@ void merge(int A[], int mid, int low, int high)
         A[i] = B[i];
     }
 }
-// merge_sort will keep on dividing the array until single elements remains that can't be furthur sub-divided
+// merge_sort will keep on dividing the array until single elements remains that can't be further sub-divided
 void merge_sort(int A[], int low, int high)
 {
     int mid;

@@ -34,7 +34,7 @@ int binarySearch(int array[], int low, int high)
 
 int main()
 {
-    // CAUTION: Array must be sorted in order to use binary search 
+    // CAUTION: Array must be `sorted` in order to use binary search 
     int x, array[] = {3, 4, 5, 6, 7, 8, 9};
     int s = sizeof(array) / sizeof(int);
     print_array(array, s);

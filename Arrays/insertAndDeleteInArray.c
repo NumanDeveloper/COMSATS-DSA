@@ -47,7 +47,7 @@ int index_insertion(int* arr, int size)
     // go to desired index, will start from right side
     for (int i = size - 1; i >= index; i--)
     {
-        // forwarding elements to the right of desired index
+        // shifting elements to the right of desired index
         arr[i + 1] = arr[i];
     }
     arr[index] = element;
@@ -66,7 +66,7 @@ int index_deletion(int* arr, int size)
     printf("Enter index: ");
     scanf("%d", &index);
     for (int i = index; i <= size - 1; i++)
-        // backwording elements
+        // shifting elements to left side
         arr[i] = arr[i + 1];
     display(arr, size);
     

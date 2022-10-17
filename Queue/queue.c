@@ -3,42 +3,51 @@
 
 int queue[MAX_SIZE], front = -1, back = -1;
 
-void en_queue(int);
-void de_queue();
+void enQ(int);
+void deQ();
 void display();
-int is_full();
-int is_empty();
-int main(){
-    en_queue(34);
-    en_queue(55);
-    en_queue(55);
+int isFull();
+int isEmpty();
+int main()
+{
+    enQ(34);
+    enQ(55);
+    enQ(55);
     display();
-    de_queue();
-    de_queue();
-    de_queue();
+    deQ();
+    deQ();
+    deQ();
 
-    // en_queue(2);
-    // en_queue(4);
-    // en_queue(5);
+    // enQ(2);
+    // enQ(4);
+    // enQ(5);
 
     display();
 
     return 0;
 }
 
-int is_full(){
-    if (back == MAX_SIZE-1) return 1;
-    else return 0;
+int isFull()
+{
+    if (back == MAX_SIZE - 1)
+        return 1;
+    else
+        return 0;
 }
-int is_empty(){
-    if (front == -1) return 1;
-    else return 0;
+int isEmpty()
+{
+    if (front == -1)
+        return 1;
+    else
+        return 0;
 }
-void en_queue(int x){
+void enQ(int x)
+{
     // check full condition
-    if(is_full())
+    if (isFull())
         printf("ERROR: Queue is full !!\n");
-    else{
+    else
+    {
         // when inserting first element
         if (front == -1)
             front = 0;
@@ -47,10 +56,12 @@ void en_queue(int x){
     }
 }
 
-void de_queue(){
-    if (is_empty())
+void deQ()
+{
+    if (isEmpty())
         printf("\nERROR: Queue is Empty !!\n");
-    else {
+    else
+    {
         printf("Deleted -> %d\n", queue[front]);
         front++;
         if (front > back)
@@ -59,13 +70,15 @@ void de_queue(){
     }
 }
 
-void display(){
+void display()
+{
     if (front == -1)
         printf("Queue has currently no elements !!\n");
-    else{
-    printf("Queue: ");
-    for (int i = front; i <= back; i++)
-        printf("%d | ", queue[i]);
-    printf("\n");
+    else
+    {
+        printf("Queue: ");
+        for (int i = front; i <= back; i++)
+            printf("%d | ", queue[i]);
+        printf("\n");
     }
 }

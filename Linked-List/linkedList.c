@@ -25,8 +25,6 @@ void insert_at_start()
     (*temp).data = value;
     // link temp to node next of head
     (*temp).next = head;
-    // (*temp).next = NULL;
-    // if(head != NULL) (*temp).next = NULL;
     // link head to temp
     head = temp;
     count++;

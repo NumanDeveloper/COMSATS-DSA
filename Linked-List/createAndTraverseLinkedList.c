@@ -10,7 +10,7 @@ struct Node
 };
 
 //traversal function
-void linkedListTraversal(struct Node *ptr) //*ptr bcz our node is a pointer
+void traversal(struct Node *ptr) //*ptr bcz our node is a pointer
 {
     while (ptr != NULL)
     {
@@ -44,8 +44,8 @@ int main()
     third->data = 66;
     third->next = NULL;
 
-    //calling traveral function
-    linkedListTraversal(head);
+    //calling traversal function
+    traversal(head);
 
     return 0;
 }

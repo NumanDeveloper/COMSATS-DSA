@@ -1,20 +1,20 @@
-/*
+/**
 copied from programiz.com
 Quicksort is a sorting algorithm based on the divide and conquer approach where
 
-* An array is divided into subarrays by selecting a pivot element (element selected from the array).
+ * An array is divided into subarrays by selecting a pivot element (element selected from the array).
 
-* While dividing the array, the pivot element should be positioned in such a way that   elements less than pivot are kept on the left side and elements greater than pivot are on   the right side of the pivot.
-* The left and right subarrays are also divided using the same approach. This process   continues until each subarray contains a single element.
-* At this point, elements are already sorted. Finally, elements are combined to form a   sorted array.
-*/
+ * While dividing the array, the pivot element should be positioned in such a way that   elements less than pivot are kept on the left side and elements greater than pivot are on   the right side of the pivot.
+ * The left and right subarrays are also divided using the same approach. This process   continues until each subarray contains a single element.
+ * At this point, elements are already sorted. Finally, elements are combined to form a   sorted array.
+ */
 
-/*
-Steps:
-1. Select the Pivot Element
-2. Rearrange the Array
-3. Divide Subarrays
-*/
+/**
+ * Steps:
+ * 1. Select the Pivot Element
+ * 2. Rearrange the Array
+ * 3. Divide Subarrays
+ */
 
 #include <iostream>
 using namespace std;
@@ -48,7 +48,8 @@ int partition(int array[], int low, int high)
     {
         if (array[j] <= pivot)
         {
-            // if element smaller than pivot is found, increment left and swap it with the left element pointed by left
+            // if element smaller than pivot is found, increment left and swap it
+            // with the left element pointed by left
             swap(&array[++left], &array[j]);
         }
     }
@@ -59,20 +60,20 @@ int partition(int array[], int low, int high)
     return (left+1);
 }
 
-void quick_sort(int array[], int low, int high)
+void quickSort(int array[], int low, int high)
 {
     if (low < high)
     {
         // find the pivot element such that
         // elements smaller than pivot are on left of pivot
-        // elements greater than pivot are on righ of pivot
+        // elements greater than pivot are on right of pivot
         int partition_index = partition(array, low, high);
 
         // recursive call on the left of pivot
-        quick_sort(array, low, partition_index - 1);
+        quickSort(array, low, partition_index - 1);
 
         // recursive call on the right of pivot
-        quick_sort(array, partition_index + 1, high);
+        quickSort(array, partition_index + 1, high);
     }
 }
 
@@ -82,6 +83,6 @@ int main()
     int n = sizeof(arr) / sizeof(int);
 
     print_array(arr, n);
-    quick_sort(arr, 0, n - 1);
+    quickSort(arr, 0, n - 1);
     print_array(arr, n);
 }

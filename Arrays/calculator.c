@@ -2,7 +2,7 @@
 #include <conio.h>
 
 // functions prototypes
-void operations(void);
+void showOperations(void);
 void get_value(void);
 int add(int, int);
 int subtract(int, int);
@@ -16,7 +16,7 @@ int main()
 {
     while (1)
     {
-        operations();
+        showOperations();
         printf("\nOperation: ");
         scanf("%d", &op);
         if (op == 5)
@@ -29,7 +29,7 @@ int main()
     }
     return 0;
 }
-void operations(void)
+void showOperations(void)
 {
     printf("\n***CALCULATOR***\nPick an operation\n1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Exit");
 }
